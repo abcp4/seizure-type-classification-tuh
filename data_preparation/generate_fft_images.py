@@ -21,7 +21,8 @@ def convert_to_fft(window_length, window_step, fft_min_freq, fft_max_freq, sampl
     warnings.filterwarnings("ignore")
     type_data = pickle.load(open(file_path, 'rb'))
     pipeline = Pipeline([FFT(), Slice(fft_min_freq, fft_max_freq), Magnitude(), Log10()])
-    time_series_data = type_data.data
+    #time_series_data = type_data.data
+    time_series_data = type_data
     start, step = 0, int(np.floor(window_step * sampling_frequency))
     stop = start + int(np.floor(window_length * sampling_frequency))
     fft_data = []

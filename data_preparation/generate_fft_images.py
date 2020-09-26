@@ -34,9 +34,11 @@ def convert_to_fft(window_length, window_step, fft_min_freq, fft_max_freq, sampl
         start, stop = start + step, stop + step
 
     fft_data = np.array(fft_data)
-    named_data = seizure_type_data(patient_id=type_data.patient_id, seizure_type=type_data.seizure_type, data=fft_data)
+    #named_data = seizure_type_data(patient_id=type_data.patient_id, seizure_type=type_data.seizure_type, data=fft_data)
 
-    return named_data,os.path.basename(file_path)
+    #return named_data,os.path.basename(file_path)
+    return fft_data,os.path.basename(file_path)
+    
 
 def main():
     parser = argparse.ArgumentParser(description='Generate FFT Images from seizure data')
